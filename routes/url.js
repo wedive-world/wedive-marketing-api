@@ -7,11 +7,12 @@ var useragent = require('express-useragent');
 router.get('/', function (req, res, next) {
   var source = req.headers['user-agent'],
   ua = useragent.parse(source);
-
-  let platform = ua.platform
+  
   let url = 'https://wedives.com'
-  if (platform == 'Android') {
+  if (ua.isAndroid) {
     url = 'https://play.google.com/store/apps/details?id=com.wedive.android.app.wedive'
+  } else if (ua.isiPhone) {
+    //TODO apple app store url
   }
   
   res.redirect(url)
