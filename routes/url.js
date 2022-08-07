@@ -7,8 +7,14 @@ var useragent = require('express-useragent');
 router.get('/', function (req, res, next) {
   var source = req.headers['user-agent'],
   ua = useragent.parse(source);
-  res.writeHead(200, { 'Content-Type': 'text/plain' });
-  res.end(JSON.stringify(ua));
+
+  let platform = ua.platform
+  let url = 'https://wedives.com'
+  if (platform == 'Android') {
+    url = 'https://play.google.com/store/apps/details?id=com.wedive.android.app.wedive'
+  }
+  
+  res.redirect(url)
 });
 
 module.exports = router;
