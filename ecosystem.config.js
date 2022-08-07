@@ -1,6 +1,6 @@
 module.exports = {
     apps: [{
-        name: "chat-service",
+        name: "marketing-api",
         script: "./index.js",
         // watch: ["."],
         // Delay between restart
