@@ -4,9 +4,9 @@ var router = express.Router();
 var useragent = require('express-useragent');
 
 /* GET users listing. */
-router.get('/', function (req, res, next) {
-
-  if (!req.query.key || !onlyNumbers(req.query.key)) {
+router.get('/:key', function (req, res, next) {
+  const key = req.params.key
+  if (!key || !onlyNumbers(key)) {
     res.send(400)
     return
   }
@@ -21,7 +21,7 @@ router.get('/', function (req, res, next) {
     //TODO apple app store url
   }
 
-  writeCreateRecord(req.query.key, ua.platform)
+  writeCreateRecord(key, ua.platform)
 
   res.redirect(url)
 });
