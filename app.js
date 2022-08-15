@@ -20,7 +20,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/healthcheck', require('express-healthcheck')())
 
-app.use('/', indexRouter);
+app.use('/', urlRouter);
 app.use('/url', urlRouter);
 
 // catch 404 and forward to error handler
