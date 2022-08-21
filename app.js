@@ -6,6 +6,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var urlRouter = require('./routes/url');
+var phoneRouter = require('./routes/phone');
 
 var app = express();
 
@@ -22,6 +23,7 @@ app.use('/healthcheck', require('express-healthcheck')())
 
 app.use('/', urlRouter);
 app.use('/url', urlRouter);
+app.use('/phone', phoneRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

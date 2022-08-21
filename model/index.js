@@ -26,5 +26,6 @@ module.exports.connectDB = (() => {
 
 module.exports.schema = {
     Url: require('./schema/url'),
-    UrlRecord: require('./schema/url-record')
+    UrlRecord: require('./schema/url-record'),
+    PhoneNumber: require('./schema/phone-number'),
 }
